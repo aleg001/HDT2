@@ -1,0 +1,20 @@
+title HT2 - Calculadora
+
+participant Input (Ingreso)
+participant Decode (Decodificar)
+participant Stack
+participant Operate
+participant Operations
+participant Stack Operations
+
+Input (Ingreso)->Decode (Decodificar):datos.txt
+Decode (Decodificar)->Stack:push
+Stack->Operate: characters
+Operate->Operations: x
+Operate->Operations: y
+Operations ->Stack Operations: result
+Stack Operations -->Operate: final result
+Operate --> Stack: push
+Stack --> Decode (Decodificar): result
+Decode (Decodificar) --> Input (Ingreso): String - results
+

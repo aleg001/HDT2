@@ -4,8 +4,9 @@
 * Universidad del Valle de Guatemala
 *
 * Fecha creacion: 05/02/21
-* Ultima modificacion: 5/02/21
+* Ultima modificacion: 6/02/21
 ***************************************************************/
+
 import java.util.ArrayList;
 
 public class ImplementacionStack<E> implements Stack<E> {

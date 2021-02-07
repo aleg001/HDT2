@@ -32,10 +32,8 @@ public interface calculadora
     Pre: 1 stack
     Post: resultados de stack
     */
-    public int operar(Stack x);//operar recibe un stack en formato postfix, y lo opera para devolver un entero que es igual al valor total de la operación
-      /*
-    Pre: 1 string
+    public int operar(Stack x);
+    /* Pre: 1 string
     Post: 1 string con operaciones
     */
-    public String decode(String a);//función que se encarga de leer el archivo y decodificar cada línea para realizar las operaciones de cada una
-}
+    public String decode(String a);

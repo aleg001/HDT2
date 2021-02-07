@@ -25,7 +25,6 @@ public class Operaciones implements calculadora{
      * @author Alejandro Gomez
      */
     public int suma(int x, int y) {
-        
         int retorno = x+y;
         return retorno;
     }
@@ -36,6 +35,7 @@ public class Operaciones implements calculadora{
      * @param x El valor al que sera restado otro
      * @param y El valor a restar
      * @return El resultado de x-y
+     * @author Alejandro Gomez
      */
     public int resta(int x, int y) {
         int retorno = x-y;
@@ -58,7 +58,6 @@ public class Operaciones implements calculadora{
         
 
     }
-    /** */
     
     @Override
     /**
@@ -75,13 +74,160 @@ public class Operaciones implements calculadora{
     /** */
     
     @Override
+        /**
+     * Método para realizar los procesos de operaciones
+     * 
+     * @param stack x
+     * @return int
+     * @author Alejandro Gomez
+     **/
     public int operar(stack x) {
-       
+    //----------------------INSTANCIAS---------------------------
+
+        /* Se crean todas las instancias
+            a utilizar en este metodo*/
+            Stack<String> Opers = new Stack<String>();
+            if (x.size()== 0){return 0;}
+
+    //--------------------CICLO--------------------------    
+        while (!x.empty()) { 
+
+            String DatoStack = x.pop().toString(); 
+            int xN; int yN; int ResultadoOperacion; 
+
+            /*
+            Se presentan los distintos posibles casos de operaciones
+            que el programa debera operar, asi mismo, se describe cada uno
+            por el proceso que realizan. 
+            */
+            switch (DatoStack) {
+                   
+                /*  Proceso a realizar para el 
+                   primer caso operacional
+                    el de la division   */
+                    
+                case "/": 
+                    xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
+                    ResultadoOperacion = xN/yN;
+                    System.out.println("OPERACION: Division"); System.out.println("Efectuado con: "+ xN +" / "+yN);System.out.println("Resultado = " + ResultadoOperacion);
+                    Opers.push(Integer.toString(ResultadoOperacion));
+                    break;
+
+                    /*Proceso a realizar para el 
+                    2do caso operacional
+                    denominado suma     */
+                    
+                case "+": 
+                    xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
+                    ResultadoOperacion = xN + yN;
+                    System.out.println("OPERACION: Suma"); System.out.println("Efectuado: " + xN + " + "+ yN); System.out.println("Resultado: = "+ ResultadoOperacion );
+                    Opers.push(Integer.toString(ResultadoOperacion));
+                    break;
+               
+                    /*  Proceso a realizar para el 
+                    tercer caso de opercacion
+                    denominado resta */
+                
+                case "-": 
+                    xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
+                    ResultadoOperacion = xN - yN;
+                    System.out.println("OPERACION: Resta");System.out.println("Efectuado: "+ xN + " - "+ yN);System.out.println("Resultado = "+ ResultadoOperacion);
+                    Opers.push(Integer.toString(ResultadoOperacion));
+                    break;
+
+                 
+                   /* Proceso a realizar para el 
+                        4to caso de opercacion
+                    denominado multiplicacion */
+               
+
+                case "*": 
+                    xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
+                    ResultadoOperacion = xN * yN;
+                    System.out.println("OPERACION: Multiplicacion");System.out.println("Efectuado: "+ xN + " * "+ yN);System.out.println("Resultado = "+ ResultadoOperacion);
+                    Opers.push(Integer.toString(ResultadoOperacion));
+                    break;
+               
+               
+               
+                /* Proceso realizado para cada uno
+                    de los posibles digitos a ingresar
+                    al momento de utilizar 
+                    la calculadora            */                     
+                case "0":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "1":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "2":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "3":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "4":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "5":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "6":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "7":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "8":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+
+                case "9":
+                    Opers.push(DatoStack); 
+                    System.out.println("PROCESANDO INFORMACION.....");
+                    System.out.println("Check check---");
+                    System.out.println("El dato "+ DatoStack + " se agrego a la pila");
+                    break;
+            }
+        }
+        int ResultadoOp = Integer.parseInt(Opers.pop()); return ResultadoOp;
         
-        return 0;
-    }
-    /** */
-    
+    }    
 
     @Override
        /**

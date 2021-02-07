@@ -9,7 +9,7 @@
 
 public class Driver {
     public static void main(String[] args) {
-    calculadora calcu = new calculadora(); 
+    Operaciones calcu = new Operaciones(); 
     System.out.println(calcu.decode("datos.txt"));  
 }
 }

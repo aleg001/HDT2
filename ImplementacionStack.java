@@ -8,6 +8,7 @@
 ***************************************************************/
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class ImplementacionStack<E> implements Stack<E> {
 

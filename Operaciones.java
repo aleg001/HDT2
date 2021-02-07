@@ -81,12 +81,12 @@ public class Operaciones implements calculadora{
      * @return int
      * @author Alejandro Gomez
      **/
-    public int operar(stack x) {
+    public int operar(Stack x) {
     //----------------------INSTANCIAS---------------------------
 
         /* Se crean todas las instancias
             a utilizar en este metodo*/
-            ImplementacionStack stackkk = new ImplementacionStack<>();
+            ImplementacionStack<String> Opers = new ImplementacionStack<>();
             if (x.size()== 0){return 0;}
 
     //--------------------CICLO--------------------------    
@@ -243,9 +243,9 @@ public class Operaciones implements calculadora{
         /* Se crean todas las instancias
             a utilizar en este metodo*/
         Scanner f = new Scanner(System.in);
-        Stack<String> l = new Stack<String>();
-        Stack<String> iL = new Stack<String>();
-        Stack<String> iD = new Stack<String>();
+        ImplementacionStack<String> l = new ImplementacionStack<String>();
+        ImplementacionStack<String> iL = new ImplementacionStack<String>();
+        ImplementacionStack<String> iD = new ImplementacionStack<String>();
         String resultadoLineas = "";
         int opsR = 0;
 
@@ -267,7 +267,7 @@ public class Operaciones implements calculadora{
         */ 
         while(f.hasNext()){ String fileLines = f.next(); l.push(fileLines);}
         while(!l.empty()){iL.push(l.pop());}
-        while(iL.size()>0){String line = iL.pop(); Stack<String> Dat = new Stack<String>(); Scanner lineaS = new Scanner(line);
+        while(iL.size()>0){String line = iL.pop(); ImplementacionStack<String> Dat = new ImplementacionStack<String>(); Scanner lineaS = new Scanner(line);
             while(lineaS.hasNext()){ String datoCrack = lineaS.next(); Dat.push(datoCrack);}
             while(!iD.empty()){iD.push(Dat.pop());}
             int result = operar(iD);

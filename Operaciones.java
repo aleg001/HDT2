@@ -86,7 +86,7 @@ public class Operaciones implements calculadora{
 
         /* Se crean todas las instancias
             a utilizar en este metodo*/
-            Stack<String> Opers = new Stack<String>();
+            ImplementacionStack stackkk = new ImplementacionStack<>();
             if (x.size()== 0){return 0;}
 
     //--------------------CICLO--------------------------    
@@ -116,7 +116,6 @@ public class Operaciones implements calculadora{
                     /*Proceso a realizar para el 
                     2do caso operacional
                     denominado suma     */
-                    
                 case "+": 
                     xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
                     ResultadoOperacion = xN + yN;
@@ -127,7 +126,6 @@ public class Operaciones implements calculadora{
                     /*  Proceso a realizar para el 
                     tercer caso de opercacion
                     denominado resta */
-                
                 case "-": 
                     xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
                     ResultadoOperacion = xN - yN;
@@ -139,8 +137,6 @@ public class Operaciones implements calculadora{
                    /* Proceso a realizar para el 
                         4to caso de opercacion
                     denominado multiplicacion */
-               
-
                 case "*": 
                     xN = Integer.parseInt(Opers.pop()); yN = Integer.parseInt(Opers.pop());
                     ResultadoOperacion = xN * yN;
@@ -153,7 +149,7 @@ public class Operaciones implements calculadora{
                 /* Proceso realizado para cada uno
                     de los posibles digitos a ingresar
                     al momento de utilizar 
-                    la calculadora            */                     
+                    la calculadora            */     
                 case "0":
                     Opers.push(DatoStack); 
                     System.out.println("PROCESANDO INFORMACION.....");
@@ -251,7 +247,6 @@ public class Operaciones implements calculadora{
         Stack<String> iL = new Stack<String>();
         Stack<String> iD = new Stack<String>();
         String resultadoLineas = "";
-        
         int opsR = 0;
 
         //-------------------------PROGRA DEFENSIVA----------------------
@@ -271,10 +266,10 @@ public class Operaciones implements calculadora{
             con los procesos necesarios para efectuarlas 
         */ 
         while(f.hasNext()){ String fileLines = f.next(); l.push(fileLines);}
-        while(!l.empty()){il.push(l.pop());}
-        while(il.size()>0){String line = il.pop(); Stack<String> Dat = new Stack<String>(); Scanner lineaS = new Scanner(line);
-            while(lineaS.hasNext()){ String datoCrack = lineaS.next(); dat.push(datoCrack);}
-            while(!iD.empty()){iD.push(dat.pop());}
+        while(!l.empty()){iL.push(l.pop());}
+        while(iL.size()>0){String line = iL.pop(); Stack<String> Dat = new Stack<String>(); Scanner lineaS = new Scanner(line);
+            while(lineaS.hasNext()){ String datoCrack = lineaS.next(); Dat.push(datoCrack);}
+            while(!iD.empty()){iD.push(Dat.pop());}
             int result = operar(iD);
             opsR++;
             resultadoLineas = resultadoLineas + "Operacion# " + opsR +":"+ Integer.toString(result)+"\n\n";

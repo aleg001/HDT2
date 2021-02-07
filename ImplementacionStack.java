@@ -19,24 +19,59 @@ public class ImplementacionStack<E> implements Stack<E> {
     }
 
     @Override
+    /**
+     * Método para saber tamanio de Vector
+     * 
+     * @param n/a
+     * @return int
+     * @author Alejandro Gomez
+     **/
     public int size() {
         return stackU.size();
     }
 
     @Override
+    /**
+     * Método push
+     * 
+     * @param E item
+     * @return n/a
+     * @author Alejandro Gomez
+     **/
     public void push(E item) {
         this.stackU.add(item);
     }
 
     @Override
+        /**
+     * Método peek
+     * 
+     * @param n/a
+     * @return E
+     * @author Alejandro Gomez
+     **/
     public E peek() {
         return(stackU.get(stackU.size() - 1)); }
   
     @Override
+    /**
+     * Método pop
+     * 
+     * @param n/a
+     * @return E
+     * @author Alejandro Gomez
+     **/
     public E pop() {
         return (stackU.remove(stackU.size() - 1));}
        
     @Override
+    /**
+     * Método empty
+     * 
+     * @param n/a
+     * @return E
+     * @author Alejandro Gomez
+     **/
     public boolean empty() {
         return stackU.isEmpty();
     }

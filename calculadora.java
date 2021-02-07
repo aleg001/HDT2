@@ -8,6 +8,7 @@
 ***************************************************************/
 public interface calculadora 
 {
+
     /*
     Pre: 2 ints
     Post: 1 int

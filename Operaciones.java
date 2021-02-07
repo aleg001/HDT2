@@ -87,7 +87,8 @@ public class Operaciones implements calculadora{
         /* Se crean todas las instancias
             a utilizar en este metodo*/
             ImplementacionStack<String> Opers = new ImplementacionStack<>();
-            if (x.size()== 0){return 0;}
+            if (x.size() == 0){return 0;}
+            System.out.println("\n\n Operaciones: ");
 
     //--------------------CICLO--------------------------    
         while (!x.empty()) { 
@@ -221,7 +222,8 @@ public class Operaciones implements calculadora{
                     break;
             }
         }
-        int ResultadoOp = Integer.parseInt(Opers.pop()); return ResultadoOp;
+        int ResultadoOp = Integer.parseInt(Opers.pop()); 
+        return ResultadoOp;
         
     }    
 
@@ -242,11 +244,13 @@ public class Operaciones implements calculadora{
 
         /* Se crean todas las instancias
             a utilizar en este metodo*/
-        Scanner f = new Scanner(System.in);
-        ImplementacionStack<String> l = new ImplementacionStack<String>();
-        ImplementacionStack<String> iL = new ImplementacionStack<String>();
-        ImplementacionStack<String> iD = new ImplementacionStack<String>();
+        Scanner archivoLectura = new Scanner(System.in);
+        
+        ImplementacionStack<String> LineasTexto = new ImplementacionStack<String>();
+        ImplementacionStack<String> ReverseLines = new ImplementacionStack<String>();
+        ImplementacionStack<String> ReverseData = new ImplementacionStack<String>();
         String resultadoLineas = "";
+        
         int opsR = 0;
 
         //-------------------------PROGRA DEFENSIVA----------------------
@@ -254,10 +258,13 @@ public class Operaciones implements calculadora{
         /* Se usa un trycatch para asegurarse
             que exista un archivo, y asi 
             accesarlo de forma correcta     */
-        try{f = new Scanner(new File(a)); } 
+
+        try{archivoLectura = new Scanner(new File(a)); } 
         catch(FileNotFoundException e){
             return("No se ha encontrado un archivo"+ "\n Ingresa un archivo correcto");
-        } f.useDelimiter("\n");
+        } 
+        archivoLectura.useDelimiter("\n");
+        
 
         //--------------------------CICLOS------------------------
 
@@ -265,14 +272,29 @@ public class Operaciones implements calculadora{
             de lineas, y agregarlas al stack
             con los procesos necesarios para efectuarlas 
         */ 
-        while(f.hasNext()){ String fileLines = f.next(); l.push(fileLines);}
-        while(!l.empty()){iL.push(l.pop());}
-        while(iL.size()>0){String line = iL.pop(); ImplementacionStack<String> Dat = new ImplementacionStack<String>(); Scanner lineaS = new Scanner(line);
-            while(lineaS.hasNext()){ String datoCrack = lineaS.next(); Dat.push(datoCrack);}
-            while(!iD.empty()){iD.push(Dat.pop());}
-            int result = operar(iD);
+        while(archivoLectura.hasNext())
+        {String fileLines = archivoLectura.next(); 
+            LineasTexto.push(fileLines);}
+
+        while(!LineasTexto.empty()){
+            ReverseLines.push(LineasTexto.pop());}
+
+        while(ReverseLines.size()>0)
+        {
+            String line = ReverseLines.pop(); 
+            ImplementacionStack<String> Dat = new ImplementacionStack<String>(); 
+            Scanner lineaS = new Scanner(line);
+
+            while(lineaS.hasNext())
+            { String datoCrack = lineaS.next(); 
+                Dat.push(datoCrack);}
+
+            while(!Dat.empty()){
+                ReverseData.push(Dat.pop());}
+
+            int result = operar(ReverseData);
             opsR++;
-            resultadoLineas = resultadoLineas + "Operacion# " + opsR +":"+ Integer.toString(result)+"\n\n";
+            resultadoLineas = resultadoLineas + "Operacion# " + opsR +": "+ Integer.toString(result)+"\n\n";
         }
 
         return resultadoLineas;
